@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <title> SOCKET</title>
+        </head>
+<body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+    <img id ="image-stream2" src="" />    
+    <script type="text/javascript">
+    var socket = io.connect();    
+    var imgChunks = [];
+    socket.on('img-chunk', function (chunk) {   
+        var img = document.getElementById('image-stream2');        
+        // imgChunks.push(chunk);
+        img.setAttribute('src', 'data:image/it.jpeg;base64,' + chunk);
+        console.log('11111111',img.getAttribute('src'));
+//     const socket = io.connect();
+//  socket.on('img-chunk', (image) => {
+//     var img = document.getElementById('output');
+//     img.setAttribute('src', 'data:image/jpeg;base64,' + image);
+// })
+     });
+    </script>
+
+</body>
+</html>
